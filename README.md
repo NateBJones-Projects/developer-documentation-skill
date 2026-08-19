@@ -6,7 +6,7 @@ The skill reads the working system before it writes. It separates implemented be
 
 ## Download the skill
 
-Download [developer-documentation-skill-1.0.0.zip](https://github.com/NateBJones-Projects/developer-documentation-skill/releases/download/v1.0.0/developer-documentation-skill-1.0.0.zip) from the first release. The ZIP contains one complete `developer-documentation` directory that you can place in your AI host's skill directory.
+Download [developer-documentation-skill-1.0.1.zip](https://github.com/NateBJones-Projects/developer-documentation-skill/releases/download/v1.0.1/developer-documentation-skill-1.0.1.zip) from the latest release. The ZIP contains one complete `developer-documentation` directory that you can place in your AI host's skill directory.
 
 To follow the project or contribute changes, clone the repository:
 
@@ -32,6 +32,8 @@ Use the skill for:
 
 ```text
 developer-documentation/
+├── ATTRIBUTION.md
+├── LICENSE
 ├── README.md
 ├── SKILL.md
 ├── docs/
@@ -93,6 +95,14 @@ The validator does not prove that technical claims are correct or that commands 
 - Access to the code, interface, current behavior, or authoritative product files needed to verify the documentation.
 - Python 3 only when you use the validator or run its tests.
 - No third-party Python packages.
+
+## License and attribution
+
+The documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The validator, tests, and GitHub workflow are licensed under the MIT License. Both licenses permit commercial use.
+
+Portions of the documentation adapt the [Google developer documentation style guide](https://developers.google.com/style/). See [ATTRIBUTION.md](ATTRIBUTION.md) for the source, modification notice, and terms. This project is independent and is not endorsed by Google.
+
+See [LICENSE](LICENSE) for the file-by-file license boundary.
 
 ## Test the package
 
