@@ -80,5 +80,24 @@ class ValidateDocsTest(unittest.TestCase):
             self.assertEqual(errors, [])
 
 
+class IsExternalTests(unittest.TestCase):
+    def test_recognizes_supported_schemes_case_insensitively(self) -> None:
+        for target in ("HTTP://example.test", "MailTo:team@example.test", "DATA:text/plain,ok"):
+            with self.subTest(target=target):
+                self.assertTrue(validate_docs.is_external(target))
+
+    def test_rejects_empty_unicode_and_nearby_non_external_targets(self) -> None:
+        for target in ("", " https://example.test", "https:", "ftp://example.test", "https：//example.test"):
+            with self.subTest(target=target):
+                self.assertFalse(validate_docs.is_external(target))
+
+    def test_non_string_targets_raise_type_specific_errors(self) -> None:
+        cases = ((None, AttributeError), (b"https://example.test", TypeError))
+        for target, error in cases:
+            with self.subTest(target=target):
+                with self.assertRaises(error):
+                    validate_docs.is_external(target)  # type: ignore[arg-type]
+
+
 if __name__ == "__main__":
     unittest.main()
